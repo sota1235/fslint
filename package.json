@@ -4,6 +4,8 @@
   "description": "Lint for checking file size.",
   "main": "index.js",
   "scripts": {
+    "build": "babel src --out-dir lib --source-maps-inline",
+    "watch": "babel src --out-dir lib --watch --source-maps-inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,5 +15,8 @@
     "checker"
   ],
   "author": "sota1235",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.8.0"
+  }
 }
