@@ -33,6 +33,18 @@ name: assets/js/moge.js size: 2020 B [NG]
 ...etc
 ```
 
+### Options
+
+```
+  Usage: file-size-checker [options]
+
+  Options:
+
+    -h, --help            output usage information
+    -f, --files <target>  target files for lint
+    -l, --limit <Byte>    limit size
+```
+
 ### Install
 
 ```shell
