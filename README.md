@@ -16,6 +16,23 @@ If you want to check file size, use this package.
 
 ### Usage
 
+You can specify file patter and limit of file size.
+
+For example, if you want to check whether `assets/js/**/*.js` exceeds the 1024Byte,
+enter this.
+
+```shell
+$ fslint --files assets/js/**/*.js --limit 1024
+```
+
+Then the result displayed on display.
+
+```shell
+name: assets/js/hoge/fuga.js size: 500 B [OK]
+name: assets/js/moge.js size: 2020 B [NG]
+...etc
+```
+
 ### Install
 
 ```shell
