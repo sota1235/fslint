@@ -29,6 +29,7 @@ const getSize = (filePath) => {
  * @description Check file size and print message.
  * @param {string} filePath - The file of the target
  * @param {number} limitSize - Threshold for the file.
+ * @return {Promise}
  */
 const checkFileSize = async (filePath, limitSize) => {
   const fileSize         = await getSize(filePath);
