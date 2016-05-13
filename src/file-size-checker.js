@@ -13,8 +13,9 @@ import fs from 'fs';
 
 // get arguments
 const opt = create([
-  ['', 'files=ARG', 'target files for lint'],
-  ['', 'limit=ARG', 'limit size'],
+  ['',  'files=ARG', 'target files for lint'],
+  ['',  'limit=ARG', 'limit size'],
+  ['h', 'help',      'display this help'],
 ]).bindHelp().parseSystem();
 
 console.log(opt);
