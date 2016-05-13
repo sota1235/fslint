@@ -35,11 +35,11 @@ const checkFileSize = async (filePath, limitSize) => {
   const readableFileSize = filesize(fileSize);
 
   if (Number(limitSize) < fileSize) {
-    console.log(`[${clc.red('NG')}] ${filePath} ${fileSize}`);
+    console.log(`[${clc.red('NG')}] ${filePath} ${readableFileSize}`);
     return;
   }
 
-  console.log(`[${clc.green('OK')}] ${filePath} ${fileSize}`);
+  console.log(`[${clc.green('OK')}] ${filePath} ${readableFileSize}`);
 };
 
 export default checkFileSize;
