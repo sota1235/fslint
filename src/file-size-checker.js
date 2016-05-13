@@ -11,6 +11,7 @@ import { create } from 'node-getopt';
 import glob from 'glob';
 import fs from 'fs';
 import clc from 'cli-color';
+import filesize from 'filesize';
 
 // get arguments
 const opt = create([
@@ -22,16 +23,22 @@ const opt = create([
 console.log(opt);
 
 const targetFiles = opt.options.files;
+const limitSize   = opt.options.limit;
 
 glob(targetFiles, (err, files) => {
   console.log(files);
 
-  for (let f of files) {
-    let stats    = fs.statSync(f);
-    let fileSize = stats.size / 1000000.0;
+  for (let fName of files) {
+    let stats        = fs.statSync(fName);
+    let fSize        = stats.size / 1024.0;  // KB
+    let displayFSize = filesize(stats.size); // human readable
 
-    let fName = clc.red(f);
-    let fSize = clc.blue(fileSize);
-    console.log(`name: ${fName} - size: ${fSize}`);
+    // checking file size
+    if (Number(limitSize) < fSize) {
+      console.log(`name: ${fName} size: ${displayFSize} [${clc.red('NG')}]`);
+      continue;
+    }
+
+    console.log(`name: ${fName} size: ${displayFSize} [${clc.green('OK')}]`);
   }
 });
