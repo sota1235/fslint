@@ -28,6 +28,7 @@
     "power-assert": "^1.4.1"
   },
   "dependencies": {
-    "glob": "^7.0.3"
+    "glob": "^7.0.3",
+    "node-getopt": "^0.2.3"
   }
 }

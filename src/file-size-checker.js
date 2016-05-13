@@ -7,6 +7,11 @@
 
 "use strict";
 
-const arg = process.argv;
+import { create } from 'node-getopt';
 
-console.log(arguments);
+const opt = create([
+  ['', 'files=ARG', 'target files for lint'],
+  ['', 'limit=ARG', 'limit size'],
+]).bindHelp().parseSystem();
+
+console.log(opt);
