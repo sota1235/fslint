@@ -7,21 +7,45 @@
 
 "use strict";
 
-import { create } from 'node-getopt';
+import { isUndefined, isEmpty } from 'lodash';
+import clc from 'cli-color';
 import glob from 'glob';
+import program from 'commander';
 import checkFileSize from './size-checker';
 
 // get arguments
-const opt = create([
-  ['',  'files=ARG', 'target files for lint'],
-  ['',  'limit=ARG', 'limit size'],
-  ['h', 'help',      'display this help'],
-]).bindHelp().parseSystem();
+program
+  .option('-f, --files <target>', 'target files for lint')
+  .option('-l, --limit <Byte>', 'limit size', parseInt)
+  .parse(process.argv);
 
-const targetFiles = opt.options.files;
-const limitSize   = opt.options.limit;
+const targetFiles = program.files
+const limitSize   = program.limit;
+
+if (isUndefined(targetFiles)) {
+  console.log(`${clc.red('Error')}: Please add -f option`);
+  console.log('Try again please!');
+  process.exit(1);
+}
+
+if (isUndefined(limitSize)) {
+  console.log(`${clc.red('Error')}: Please add -l option`);
+  console.log('Try again please!');
+  process.exit(1);
+}
 
 glob(targetFiles, (err, files) => {
+  if (err) {
+    console.log(`Error: ${err.message}\n`);
+    console.log('Try again please!\n');
+    process.exit(1);
+  }
+
+  if (isEmpty(files)) {
+    console.log('Target file is nothing :(');
+    process.exit(0);
+  }
+
   const promises = [];
 
   for (let file of files) {

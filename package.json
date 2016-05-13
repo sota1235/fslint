@@ -38,8 +38,9 @@
   "dependencies": {
     "babel-polyfill": "^6.8.0",
     "cli-color": "^1.1.0",
+    "commander": "^2.9.0",
     "filesize": "^3.3.0",
     "glob": "^7.0.3",
-    "node-getopt": "^0.2.3"
+    "lodash": "^4.12.0"
   }
 }
