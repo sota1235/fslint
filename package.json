@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Lint for checking file size.",
   "main": "index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "babel src --out-dir lib --source-maps-inline",
     "watch": "babel src --out-dir lib --watch --source-maps-inline",
