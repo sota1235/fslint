@@ -29,6 +29,9 @@ glob(targetFiles, (err, files) => {
   }
 
   Promise.all(promises)
-    .then(result => console.log('finish!'))
-    .catch(err => console.error(`something error, ${err}`));
+    .then(result => console.log('All check finished!'))
+    .catch(err => {
+      console.error(`something error, ${err}`)
+      process.exit(1);
+    });
 });
