@@ -1,5 +1,5 @@
 {
-  "name": "file-size-lint",
+  "name": "fslint",
   "version": "0.0.1",
   "description": "Lint for checking file size.",
   "bin": {
