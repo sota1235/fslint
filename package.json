@@ -26,5 +26,8 @@
     "babel-register": "^6.8.0",
     "mocha": "^2.4.5",
     "power-assert": "^1.4.1"
+  },
+  "dependencies": {
+    "glob": "^7.0.3"
   }
 }
