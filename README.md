@@ -28,8 +28,8 @@ $ fslint --files=assets/js/**/*.js --limit=1024
 Then the result displayed on display.
 
 ```shell
-name: assets/js/hoge/fuga.js size: 500 B [OK]
-name: assets/js/moge.js size: 2020 B [NG]
+[OK] assets/js/hoge/fuga.js 500 B
+[NG] assets/js/moge.js 2020 MB
 ...etc
 ```
 
@@ -40,8 +40,8 @@ name: assets/js/moge.js size: 2020 B [NG]
 
   Options:
 
-    -h, --help            output usage information
-    -f, --files <target>  target files for lint
+    --help                output usage information
+    --files <target>      target files for lint
     -l, --limit <Byte>    limit size
 ```
 

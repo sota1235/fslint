@@ -15,8 +15,8 @@ import checkFileSize from './size-checker';
 
 // get arguments
 program
-  .option('-f, --files <target>', 'target files for lint')
-  .option('-l, --limit <Byte>', 'limit size', parseInt)
+  .option('--files <target>', 'target files for lint')
+  .option('--limit <Byte>', 'limit size', parseInt)
   .parse(process.argv);
 
 const targetFiles = program.files
