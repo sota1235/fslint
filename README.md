@@ -1,4 +1,4 @@
-file-size-lint
+fslint
 ====
 
 Lint for checking size of file.
