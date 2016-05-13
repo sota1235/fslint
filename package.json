@@ -31,6 +31,7 @@
     "power-assert": "^1.4.1"
   },
   "dependencies": {
+    "cli-color": "^1.1.0",
     "glob": "^7.0.3",
     "node-getopt": "^0.2.3"
   }

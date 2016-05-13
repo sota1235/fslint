@@ -10,6 +10,7 @@
 import { create } from 'node-getopt';
 import glob from 'glob';
 import fs from 'fs';
+import clc from 'cli-color';
 
 // get arguments
 const opt = create([
@@ -28,6 +29,9 @@ glob(targetFiles, (err, files) => {
   for (let f of files) {
     let stats    = fs.statSync(f);
     let fileSize = stats.size / 1000000.0;
-    console.log(`name: ${f} - size: ${fileSize}`);
+
+    let fName = clc.red(f);
+    let fSize = clc.blue(fileSize);
+    console.log(`name: ${fName} - size: ${fSize}`);
   }
 });
