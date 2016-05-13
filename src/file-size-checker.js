@@ -26,7 +26,7 @@ const limitSize   = opt.options.limit;
 glob(targetFiles, (err, files) => {
   for (let fName of files) {
     let stats        = fs.statSync(fName);
-    let fSize        = stats.size / 1024.0;  // KB
+    let fSize        = stats.size;           // Byte
     let displayFSize = filesize(stats.size); // human readable
 
     // checking file size
