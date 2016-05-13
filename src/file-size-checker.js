@@ -20,14 +20,10 @@ const opt = create([
   ['h', 'help',      'display this help'],
 ]).bindHelp().parseSystem();
 
-console.log(opt);
-
 const targetFiles = opt.options.files;
 const limitSize   = opt.options.limit;
 
 glob(targetFiles, (err, files) => {
-  console.log(files);
-
   for (let fName of files) {
     let stats        = fs.statSync(fName);
     let fSize        = stats.size / 1024.0;  // KB
