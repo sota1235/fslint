@@ -9,9 +9,7 @@
 
 import { create } from 'node-getopt';
 import glob from 'glob';
-import fs from 'fs';
-import clc from 'cli-color';
-import filesize from 'filesize';
+import checkFileSize from './size-checker';
 
 // get arguments
 const opt = create([
@@ -24,17 +22,13 @@ const targetFiles = opt.options.files;
 const limitSize   = opt.options.limit;
 
 glob(targetFiles, (err, files) => {
-  for (let fName of files) {
-    let stats        = fs.statSync(fName);
-    let fSize        = stats.size;           // Byte
-    let displayFSize = filesize(stats.size); // human readable
+  const promises = [];
 
-    // checking file size
-    if (Number(limitSize) < fSize) {
-      console.log(`name: ${fName} size: ${displayFSize} [${clc.red('NG')}]`);
-      continue;
-    }
-
-    console.log(`name: ${fName} size: ${displayFSize} [${clc.green('OK')}]`);
+  for (let file of files) {
+    promises.push(checkFileSize(file, limitSize));
   }
+
+  Promise.all(promises)
+    .then(result => console.log('finish!'))
+    .catch(err => console.error(`something error, ${err}`));
 });
