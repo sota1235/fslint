@@ -22,7 +22,7 @@ For example, if you want to check whether `assets/js/**/*.js` exceeds the 1024By
 enter this.
 
 ```shell
-$ fslint --files assets/js/**/*.js --limit 1024
+$ fslint --files=assets/js/**/*.js --limit=1024
 ```
 
 Then the result displayed on display.
