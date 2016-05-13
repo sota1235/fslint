@@ -1,0 +1,17 @@
+{
+  "name": "file-size-lint",
+  "version": "0.0.1",
+  "description": "Lint for checking file size.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "file",
+    "size",
+    "lint",
+    "checker"
+  ],
+  "author": "sota1235",
+  "license": "MIT"
+}
