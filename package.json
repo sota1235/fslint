@@ -2,6 +2,9 @@
   "name": "file-size-lint",
   "version": "0.0.1",
   "description": "Lint for checking file size.",
+  "bin": {
+    "fslint": "./lib/file-size-checker.js"
+  },
   "main": "index.js",
   "files": [
     "lib"
