@@ -11,7 +11,7 @@ import { isUndefined, isEmpty } from 'lodash';
 import clc from 'cli-color';
 import glob from 'glob';
 import program from 'commander';
-import checkFileSize from '../size-checker';
+import checkFiles from '../size-checker';
 
 // get arguments
 program
@@ -46,14 +46,11 @@ glob(targetFiles, (err, files) => {
     process.exit(0);
   }
 
-  const promises = [];
-
-  for (let file of files) {
-    promises.push(checkFileSize(file, limitSize));
-  }
-
-  Promise.all(promises)
-    .then(result => console.log('All check finished!'))
+  checkFiles(files, limitSize)
+    .then(result => {
+      const exitStatus = result ? 0 : 1;
+      process.exit(exitStatus);
+    })
     .catch(err => {
       console.error(`something error, ${err}`)
       process.exit(1);
