@@ -11,7 +11,7 @@ import { isUndefined, isEmpty } from 'lodash';
 import clc from 'cli-color';
 import glob from 'glob';
 import program from 'commander';
-import checkFiles from '../size-checker';
+import checkFiles from '../cli';
 
 // get arguments
 program
