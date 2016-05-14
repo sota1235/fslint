@@ -9,7 +9,7 @@ If you want to check file size, use this package.
 
 ### Demo
 
-![](https://gyazo.com/5168d4433fe35b09fddeb7ca7a1f3cb9)
+![](https://i.gyazo.com/5168d4433fe35b09fddeb7ca7a1f3cb9.gif)
 
 ### Requirement
 
