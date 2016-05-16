@@ -2,8 +2,6 @@
  * @description Checking file size.
  */
 
-"use strict";
-
 import 'babel-polyfill';
 import fs from 'fs';
 import clc from 'cli-color';
@@ -14,8 +12,8 @@ import { countBy } from 'lodash';
  * @param {string} filePath - The file of the target.
  * @return {Promise}
  */
-const getSize = (filePath) => {
-  return new Promise((resolve, reject) => {
+const getSize = (filePath) =>
+  new Promise((resolve, reject) => {
     fs.stat(filePath, (err, stats) => {
       if (err) {
         reject(err);
@@ -24,7 +22,6 @@ const getSize = (filePath) => {
       resolve(stats.size); // Byte
     });
   });
-};
 
 /**
  * @description Check file size and print message.
@@ -55,7 +52,7 @@ const checkFiles = async (files, limitSize) => {
   const promises = [];
   let exitStatus = true;
 
-  for (let file of files) {
+  for (const file of files) {
     promises.push(checkFileSize(file, limitSize));
   }
 
