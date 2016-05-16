@@ -32,7 +32,7 @@ if (isUndefined(limitSize)) {
   process.exit(1);
 }
 
-glob(targetFiles, (err, files) => {
+glob(targetFiles, { realpath: true }, (err, files) => {
   if (err) {
     console.log(`Error: ${err.message}\n`);
     console.log('Try again please!\n');
@@ -44,14 +44,11 @@ glob(targetFiles, (err, files) => {
     process.exit(0);
   }
 
-  const promises = [];
-
-  for (const file of files) {
-    promises.push(checkFileSize(file, limitSize));
-  }
-
-  Promise.all(promises)
-    .then(() => console.log('All check finished!'))
+  checkFiles(files, limitSize)
+    .then(result => {
+      const exitStatus = result ? 0 : 1;
+      process.exit(exitStatus);
+    })
     .catch(e => {
       console.error(`something error, ${e}`);
       process.exit(1);
