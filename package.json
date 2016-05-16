@@ -11,7 +11,7 @@
   "scripts": {
     "build": "babel src --out-dir lib --source-maps-inline",
     "watch": "babel src --out-dir lib --watch --source-maps-inline",
-    "lint": "eslint -c airbnb src/**/*.js test/**/*.js",
+    "lint": "eslint src/**/*.js test/**/*.js",
     "test": "mocha --reporter spec --compilers js:babel-register"
   },
   "repository": {
