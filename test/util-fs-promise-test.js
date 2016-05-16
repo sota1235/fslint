@@ -11,7 +11,7 @@ describe('Unit tests for util/fs-promise', () => {
   it('Should resolve result of fs module\'s method', async () => {
     const expected = 'expected';
     const mockFsPromise = proxyquire('../src/util/fs-promise', {
-      'fs': {
+      fs: {
         stat(file, callback) {
           callback(null, expected);
         },
@@ -24,7 +24,7 @@ describe('Unit tests for util/fs-promise', () => {
   it('Should reject error of fs module\'s method', async () => {
     const expected = 'error';
     const mockFsPromise = proxyquire('../src/util/fs-promise', {
-      'fs': {
+      fs: {
         stat(file, callback) {
           callback(expected, null);
         },

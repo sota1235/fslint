@@ -5,7 +5,6 @@
 import 'babel-polyfill';
 import checkFileSize from './util/checker';
 import clc           from 'cli-color';
-import filesize      from 'filesize';
 import { countBy }   from 'lodash';
 
 /**
