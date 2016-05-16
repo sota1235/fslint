@@ -5,8 +5,6 @@
  * @author sota1235
  */
 
-"use strict";
-
 import { isUndefined, isEmpty } from 'lodash';
 import clc from 'cli-color';
 import glob from 'glob';
@@ -19,7 +17,7 @@ program
   .option('--limit <Byte>', 'limit size', parseInt)
   .parse(process.argv);
 
-const targetFiles = program.files
+const targetFiles = program.files;
 const limitSize   = program.limit;
 
 if (isUndefined(targetFiles)) {
@@ -46,13 +44,16 @@ glob(targetFiles, (err, files) => {
     process.exit(0);
   }
 
-  checkFiles(files, limitSize)
-    .then(result => {
-      const exitStatus = result ? 0 : 1;
-      process.exit(exitStatus);
-    })
-    .catch(err => {
-      console.error(`something error, ${err}`)
+  const promises = [];
+
+  for (const file of files) {
+    promises.push(checkFileSize(file, limitSize));
+  }
+
+  Promise.all(promises)
+    .then(() => console.log('All check finished!'))
+    .catch(e => {
+      console.error(`something error, ${e}`);
       process.exit(1);
     });
 });
