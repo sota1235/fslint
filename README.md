@@ -1,7 +1,7 @@
 fslint
 ====
 
-[![npm version](https://badge.fury.io/js/fslint.svg)](https://badge.fury.io/js/fslint)
+[![npm version](https://badge.fury.io/js/fslint.svg)](https://badge.fury.io/js/fslint) [![Build Status](https://travis-ci.org/sota1235/fslint.svg?branch=master)](https://travis-ci.org/sota1235/fslint)
 
 Lint for checking size of file.
 
