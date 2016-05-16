@@ -1,6 +1,8 @@
 fslint
 ====
 
+[![npm version](https://badge.fury.io/js/fslint.svg)](https://badge.fury.io/js/fslint)
+
 Lint for checking size of file.
 
 ### Description
