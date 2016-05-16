@@ -3,25 +3,10 @@
  */
 
 import 'babel-polyfill';
-import fs from 'fs';
+import * as pfs from './util/fs-promise';
 import clc from 'cli-color';
 import filesize from 'filesize';
 import { countBy } from 'lodash';
-
-/**
- * @param {string} filePath - The file of the target.
- * @return {Promise}
- */
-const getSize = (filePath) =>
-  new Promise((resolve, reject) => {
-    fs.stat(filePath, (err, stats) => {
-      if (err) {
-        reject(err);
-      }
-
-      resolve(stats.size); // Byte
-    });
-  });
 
 /**
  * @description Check file size and print message.
@@ -30,7 +15,7 @@ const getSize = (filePath) =>
  * @return {Promise}
  */
 const checkFileSize = async (filePath, limitSize) => {
-  const fileSize         = await getSize(filePath);
+  const fileSize         = (await pfs.stat(filePath)).size;
   const readableFileSize = filesize(fileSize);
 
   if (Number(limitSize) < fileSize) {
