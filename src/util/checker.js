@@ -5,6 +5,7 @@
 import * as pfs from './fs-promise';
 import clc      from 'cli-color';
 import filesize from 'filesize';
+import logger   from './logger';
 
 /**
  * @description Check file size and print message.
@@ -17,11 +18,11 @@ const checkFileSize = async (filePath, limitSize) => {
   const readableFileSize = filesize(fileSize);
 
   if (Number(limitSize) < fileSize) {
-    console.log(`[${clc.red('NG')}] ${readableFileSize}\t${filePath}`);
+    logger.info(`[${clc.red('NG')}] ${readableFileSize}\t${filePath}`);
     return false;
   }
 
-  console.log(`[${clc.green('OK')}] ${readableFileSize}\t${filePath}`);
+  logger.info(`[${clc.green('OK')}] ${readableFileSize}\t${filePath}`);
   return true;
 };
 

@@ -14,6 +14,13 @@ describe('Unit tests for util/checker', () => {
           return new Promise((resolve) => resolve({ size: 100 }));
         },
       },
+      './logger': {
+        default:{
+          info() {
+            return; // do nothing
+          },
+        },
+      },
     });
 
     assert(await mockMethod.default('file path', 100));
@@ -25,6 +32,13 @@ describe('Unit tests for util/checker', () => {
       './fs-promise': {
         stat(file) {
           return new Promise((resolve) => resolve({ size: 100 }));
+        },
+      },
+      './logger': {
+        default: {
+          info() {
+            return; // do nothing
+          },
         },
       },
     });
