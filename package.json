@@ -1,9 +1,9 @@
 {
   "name": "fslint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lint for checking file size.",
   "bin": {
-    "fslint": "./lib/bin/fs.js"
+    "fslint": "./lib/bin/fslint.js"
   },
   "files": [
     "lib"
