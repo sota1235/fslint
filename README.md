@@ -1,9 +1,7 @@
 fslint
 ====
 
-[![npm version](https://badge.fury.io/js/fslint.svg)](https://badge.fury.io/js/fslint) [![Build Status](https://travis-ci.org/sota1235/fslint.svg?branch=master)](https://travis-ci.org/sota1235/fslint)
-
-[![Dependency Status](https://david-dm.org/sota1235/fslint.svg)](https://david-dm.org/sota1235/fslint) [![devDependency Status](https://david-dm.org/sota1235/fslint/dev-status.svg)](https://david-dm.org/sota1235/fslint#info=devDependencies)
+[![npm version](https://badge.fury.io/js/fslint.svg)](https://badge.fury.io/js/fslint) [![Build Status](https://travis-ci.org/sota1235/fslint.svg?branch=master)](https://travis-ci.org/sota1235/fslint) [![Dependency Status](https://david-dm.org/sota1235/fslint.svg)](https://david-dm.org/sota1235/fslint) [![devDependency Status](https://david-dm.org/sota1235/fslint/dev-status.svg)](https://david-dm.org/sota1235/fslint#info=devDependencies)
 
 Lint for checking size of file.
 
