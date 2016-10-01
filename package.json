@@ -2,6 +2,9 @@
   "name": "fslint",
   "version": "1.1.0",
   "description": "Lint for checking file size.",
+  "engines": {
+    "node": ">=4"
+  },
   "bin": {
     "fslint": "./lib/bin/fslint.js"
   },
