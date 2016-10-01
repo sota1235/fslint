@@ -26,7 +26,7 @@ const megaByteSize = program.limitMb;
 const limitSize = megaByteSize || byteSize;
 
 if (isUndefined(targetFiles)) {
-  console.log(`${clc.red('Error')}: Please add -f option`);
+  console.log(`${clc.red('Error')}: Please add --files option`);
   console.log('Try again please!');
   process.exit(1);
 }
