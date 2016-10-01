@@ -44,9 +44,11 @@ Then the result displayed on display.
 
   Options:
 
-    --help                output usage information
-    --files <target>      target files for lint
-    -l, --limit <Byte>    limit size
+    --help                  output usage information
+    --files <target>        target files for lint
+    --limit <Byte>          limit size
+    --limit-kb <Kilo Byte>  limit size, specify with kilo byte
+    --limit-mb <Mega Byte>  limit size, specify with mega byte
 ```
 
 ### Install
