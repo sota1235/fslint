@@ -20,7 +20,7 @@ program
 
 const targetFiles  = program.files;
 const byteSize     = program.limit;
-const megaByteSize = program.limitMb;
+const megaByteSize = isUndefined(program.limitMb) ? undefined : program.limitMb * 1024 * 1024;
 
 // --limit-mb option takes priority over --limit option
 const limitSize = megaByteSize || byteSize;
