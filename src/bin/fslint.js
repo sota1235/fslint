@@ -15,15 +15,16 @@ import checkFiles from '../cli';
 program
   .option('--files <target>', 'target files for lint')
   .option('--limit <Byte>', 'limit size', parseInt)
+  .option('--limit-kb <Kilo Byte>', 'limit size, specify with kilo byte', parseInt)
   .option('--limit-mb <Mega Byte>', 'limit size, specify with mega byte', parseInt)
   .parse(process.argv);
 
 const targetFiles  = program.files;
 const byteSize     = program.limit;
+const kiloByteSize = isUndefined(program.limitKb) ? undefined : program.limitKb * 1024;
 const megaByteSize = isUndefined(program.limitMb) ? undefined : program.limitMb * 1024 * 1024;
 
-// --limit-mb option takes priority over --limit option
-const limitSize = megaByteSize || byteSize;
+const limitSize = megaByteSize || kiloByteSize || byteSize;
 
 if (isUndefined(targetFiles)) {
   console.log(`${clc.red('Error')}: Please add --files option`);
