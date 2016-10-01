@@ -15,8 +15,8 @@ import checkFiles from '../cli';
 program
   .option('--files <target>', 'target files for lint')
   .option('--limit <Byte>', 'limit size', parseInt)
-  .option('--limit-kb <Kilo Byte>', 'limit size, specify with kilo byte', parseInt)
-  .option('--limit-mb <Mega Byte>', 'limit size, specify with mega byte', parseInt)
+  .option('--limit-kb <Kilo Byte>', 'limit size, specify with kilo byte', parseFloat)
+  .option('--limit-mb <Mega Byte>', 'limit size, specify with mega byte', parseFloat)
   .parse(process.argv);
 
 const targetFiles  = program.files;
