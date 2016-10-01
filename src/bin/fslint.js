@@ -15,10 +15,15 @@ import checkFiles from '../cli';
 program
   .option('--files <target>', 'target files for lint')
   .option('--limit <Byte>', 'limit size', parseInt)
+  .option('--limit-mb <Mega Byte>', 'limit size, specify with mega byte', parseInt)
   .parse(process.argv);
 
-const targetFiles = program.files;
-const limitSize   = program.limit;
+const targetFiles  = program.files;
+const byteSize     = program.limit;
+const megaByteSize = program.limitMb;
+
+// --limit-mb option takes priority over --limit option
+const limitSize = megaByteSize || byteSize;
 
 if (isUndefined(targetFiles)) {
   console.log(`${clc.red('Error')}: Please add -f option`);
@@ -27,7 +32,9 @@ if (isUndefined(targetFiles)) {
 }
 
 if (isUndefined(limitSize)) {
-  console.log(`${clc.red('Error')}: Please add -l option`);
+  console.log(`${clc.red('Error')}: Please add size option`);
+  console.log(`\t--limit    <Byte>`);
+  console.log(`\t--limit-mb <Mega Byte>`);
   console.log('Try again please!');
   process.exit(1);
 }
