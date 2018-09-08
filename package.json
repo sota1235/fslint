@@ -14,7 +14,9 @@
   "scripts": {
     "build": "babel src --out-dir lib --source-maps-inline --extensions '.ts'",
     "watch": "babel src --out-dir lib --watch --source-maps-inline --extensions '.ts'",
-    "lint": "eslint src/ test/",
+    "lint:test": "eslint test/",
+    "lint:src": "tslint -c tslint.json --fix 'src/**/*.ts'",
+    "lint": "npm run lint:test & npm run lint:src",
     "test": "mocha --reporter spec --compilers js:@babel/register"
   },
   "repository": {
@@ -51,6 +53,7 @@
     "power-assert": "^1.4.1",
     "proxyquire": "^1.7.9",
     "sinon": "^1.17.4",
+    "tslint": "^5.11.0",
     "typescript": "^3.0.3"
   },
   "dependencies": {

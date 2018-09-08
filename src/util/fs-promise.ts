@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import {Stats} from 'fs';
+import * as fs from "fs";
+import {Stats} from "fs";
 
 export function stat(filePath: string): Promise<Stats> {
   return new Promise((resolve, reject) => {
