@@ -38,7 +38,7 @@ const checkFiles = async (files, limitSize) => {
     exitStatus = false;
   }
 
-  console.log(`\nAll checking finished!`);
+  console.log('\nAll checking finished!');
 
   return exitStatus;
 };
