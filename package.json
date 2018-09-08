@@ -39,6 +39,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@types/node": "^10.9.4",
     "babel-eslint": "^7.0.0",
     "babel-preset-power-assert": "^3.0.0",
     "eslint": "^3.6.1",
