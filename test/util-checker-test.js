@@ -2,7 +2,7 @@
  * @description Unit test for util/checker
  */
 
-import 'babel-polyfill';
+import '@babel/polyfill';
 import assert     from 'power-assert';
 import proxyquire from 'proxyquire';
 

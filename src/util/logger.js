@@ -4,12 +4,12 @@
 
 const logger = {
   info(...msg) {
-    for (let i=0;i<msg.length;i++) {
+    for (let i = 0; i < msg.length; i++) {
       console.log(msg[i]);
     }
   },
   error(...msg) {
-    for (let i=0;i<msg.length;i++) {
+    for (let i = 0; i < msg.length; i++) {
       console.error(msg[i]);
     }
   },

@@ -2,7 +2,7 @@
  * @description Checking file size.
  */
 
-import 'babel-polyfill';
+import '@babel/polyfill';
 import checkFileSize from './util/checker';
 import clc           from 'cli-color';
 import { countBy }   from 'lodash';
@@ -38,7 +38,7 @@ const checkFiles = async (files, limitSize) => {
     exitStatus = false;
   }
 
-  console.log(`\nAll checking finished!`);
+  console.log('\nAll checking finished!');
 
   return exitStatus;
 };
