@@ -2,7 +2,7 @@
  * @description Unit test for util/fs-promise
  */
 
-import 'babel-polyfill';
+import '@babel/polyfill';
 import { rejects } from './test-helper';
 import assert      from 'power-assert';
 import proxyquire  from 'proxyquire';

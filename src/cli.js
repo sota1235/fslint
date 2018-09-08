@@ -2,7 +2,7 @@
  * @description Checking file size.
  */
 
-import 'babel-polyfill';
+import '@babel/polyfill';
 import checkFileSize from './util/checker';
 import clc           from 'cli-color';
 import { countBy }   from 'lodash';
