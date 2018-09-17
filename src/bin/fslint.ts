@@ -5,9 +5,9 @@
  * @author sota1235
  */
 
-import clc from 'cli-color';
-import program from 'commander';
-import glob from 'glob';
+import * as clc from 'cli-color';
+import * as program from 'commander';
+import * as glob from 'glob';
 import { isEmpty, isUndefined } from 'lodash';
 import checkFiles from '../cli';
 
@@ -27,7 +27,7 @@ program
   )
   .parse(process.argv);
 
-const targetFiles = program.files;
+const targetFiles: string = program.files;
 const byteSize = program.limit;
 const kiloByteSize = isUndefined(program.limitKb)
   ? undefined
@@ -52,25 +52,29 @@ if (isUndefined(limitSize)) {
   process.exit(1);
 }
 
-glob(targetFiles, { realpath: true }, (err, files) => {
-  if (err) {
-    console.log(`Error: ${err.message}\n`);
-    console.log('Try again please!\n');
-    process.exit(1);
-  }
-
-  if (isEmpty(files)) {
-    console.log('Target file is nothing :(');
-    process.exit(0);
-  }
-
-  checkFiles(files, limitSize)
-    .then(result => {
-      const exitStatus = result ? 0 : 1;
-      process.exit(exitStatus);
-    })
-    .catch(e => {
-      console.error(`something error, ${e}`);
+glob(
+  targetFiles,
+  { realpath: true },
+  (err: Error | null, matches: string[]): void => {
+    if (err) {
+      console.log(`Error: ${err.message}\n`);
+      console.log('Try again please!\n');
       process.exit(1);
-    });
-});
+    }
+
+    if (isEmpty(matches)) {
+      console.log('Target file is nothing :(');
+      process.exit(0);
+    }
+
+    checkFiles(matches, limitSize)
+      .then(result => {
+        const exitStatus = result ? 0 : 1;
+        process.exit(exitStatus);
+      })
+      .catch(e => {
+        console.error(`something error, ${e}`);
+        process.exit(1);
+      });
+  },
+);

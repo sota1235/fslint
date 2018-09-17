@@ -12,8 +12,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "babel src --out-dir lib --source-maps-inline --extensions '.ts'",
-    "watch": "babel src --out-dir lib --watch --source-maps-inline --extensions '.ts'",
+    "build": "tsc",
+    "watch": "tsc -2",
     "lint:fix": "prettier --write ./src/**/*.ts",
     "lint:test": "eslint test/",
     "lint:src": "tslint -c tslint.json --fix 'src/**/*.ts'",
@@ -42,6 +42,8 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@types/glob": "^5.0.35",
+    "@types/lodash": "^4.14.116",
     "@types/node": "^10.9.4",
     "babel-eslint": "^7.0.0",
     "babel-preset-power-assert": "^3.0.0",
@@ -66,7 +68,7 @@
     "@types/cli-color": "^0.3.29",
     "@types/filesize": "^3.6.0",
     "cli-color": "^1.1.0",
-    "commander": "^2.9.0",
+    "commander": "^2.18.0",
     "filesize": "^3.3.0",
     "glob": "^7.0.3",
     "lodash": "^4.12.0"

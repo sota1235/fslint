@@ -3,17 +3,11 @@
  */
 
 import "@babel/polyfill";
-import clc           from "cli-color";
+import * as clc      from "cli-color";
 import { countBy }   from "lodash";
 import checkFileSize from "./util/checker";
 
-/**
- * @description Check files.
- * @param {Array} files - Array of the target files.
- * @param {number} limitSize - Threshold for the file.
- * @return {Promise}
- */
-const checkFiles = async (files, limitSize) => {
+const checkFiles = async (files: string[], limitSize: number): Promise<boolean> => {
   const promises = [];
   let exitStatus = true;
 
