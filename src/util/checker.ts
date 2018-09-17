@@ -1,13 +1,13 @@
 import * as clc from 'cli-color';
-import * as filesize from 'filesize';
+import * as fileSize from 'filesize';
 import { stat } from './fs-promise';
 import logger from './logger';
 
 const checkFileSize = async (filePath: string, limitSize: number): boolean => {
-  const fileSize: number = (await stat(filePath)).size;
-  const readableFileSize = filesize(fileSize);
+  const byte: number = (await stat(filePath)).size;
+  const readableFileSize = fileSize(byte);
 
-  if (Number(limitSize) < fileSize) {
+  if (Number(limitSize) < byte) {
     logger.info(`[${clc.red('NG')}] ${readableFileSize}\t${filePath}`);
     return false;
   }
