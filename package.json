@@ -60,6 +60,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "@types/cli-color": "^0.3.29",
+    "@types/filesize": "^3.6.0",
     "cli-color": "^1.1.0",
     "commander": "^2.9.0",
     "filesize": "^3.3.0",
