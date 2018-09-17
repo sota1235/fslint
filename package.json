@@ -14,7 +14,7 @@
   "scripts": {
     "build": "babel src --out-dir lib --source-maps-inline --extensions '.ts'",
     "watch": "babel src --out-dir lib --watch --source-maps-inline --extensions '.ts'",
-    "lint:fix": "prettier",
+    "lint:fix": "prettier --write ./src/**/*.ts",
     "lint:test": "eslint test/",
     "lint:src": "tslint -c tslint.json --fix 'src/**/*.ts'",
     "lint": "npm run lint:fix && npm run lint:test && npm run lint:src",
