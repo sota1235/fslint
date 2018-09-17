@@ -1,6 +1,10 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
-    ]
+        "tslint:recommended",
+        "tslint-config-prettier"
+    ],
+    "rules": {
+      "no-console": false
+    }
 }

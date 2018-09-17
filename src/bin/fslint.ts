@@ -5,24 +5,36 @@
  * @author sota1235
  */
 
-import { isUndefined, isEmpty } from 'lodash';
 import clc from 'cli-color';
-import glob from 'glob';
 import program from 'commander';
+import glob from 'glob';
+import { isEmpty, isUndefined } from 'lodash';
 import checkFiles from '../cli';
 
 // get arguments
 program
   .option('--files <target>', 'target files for lint')
   .option('--limit <Byte>', 'limit size', parseInt)
-  .option('--limit-kb <Kilo Byte>', 'limit size, specify with kilo byte', parseFloat)
-  .option('--limit-mb <Mega Byte>', 'limit size, specify with mega byte', parseFloat)
+  .option(
+    '--limit-kb <Kilo Byte>',
+    'limit size, specify with kilo byte',
+    parseFloat,
+  )
+  .option(
+    '--limit-mb <Mega Byte>',
+    'limit size, specify with mega byte',
+    parseFloat,
+  )
   .parse(process.argv);
 
-const targetFiles  = program.files;
-const byteSize     = program.limit;
-const kiloByteSize = isUndefined(program.limitKb) ? undefined : program.limitKb * 1024;
-const megaByteSize = isUndefined(program.limitMb) ? undefined : program.limitMb * 1024 * 1024;
+const targetFiles = program.files;
+const byteSize = program.limit;
+const kiloByteSize = isUndefined(program.limitKb)
+  ? undefined
+  : program.limitKb * 1024;
+const megaByteSize = isUndefined(program.limitMb)
+  ? undefined
+  : program.limitMb * 1024 * 1024;
 
 const limitSize = megaByteSize || kiloByteSize || byteSize;
 
