@@ -8,7 +8,7 @@ import proxyquire from 'proxyquire';
 
 describe('Unit tests for util/checker', () => {
   it('Should resolve true', async () => {
-    const mockMethod = proxyquire('../src/util/checker', {
+    const mockMethod = proxyquire('../lib/util/checker', {
       './fs-promise': {
         stat(file) {
           return new Promise((resolve) => resolve({ size: 100 }));
@@ -28,7 +28,7 @@ describe('Unit tests for util/checker', () => {
   });
 
   it('Should resolve false', async () => {
-    const mockMethod = proxyquire('../src/util/checker', {
+    const mockMethod = proxyquire('../lib/util/checker', {
       './fs-promise': {
         stat(file) {
           return new Promise((resolve) => resolve({ size: 100 }));

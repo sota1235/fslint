@@ -2,18 +2,12 @@
  * @description Checking file size.
  */
 
-import '@babel/polyfill';
-import checkFileSize from './util/checker';
-import clc           from 'cli-color';
-import { countBy }   from 'lodash';
+import "@babel/polyfill";
+import * as clc      from "cli-color";
+import { countBy }   from "lodash";
+import checkFileSize from "./util/checker";
 
-/**
- * @description Check files.
- * @param {Array} files - Array of the target files.
- * @param {number} limitSize - Threshold for the file.
- * @return {Promise}
- */
-const checkFiles = async (files, limitSize) => {
+const checkFiles = async (files: string[], limitSize: number): Promise<boolean> => {
   const promises = [];
   let exitStatus = true;
 
@@ -30,15 +24,15 @@ const checkFiles = async (files, limitSize) => {
   console.log(`\n   There are ${allNumber} cases.`);
 
   if (greenNumber > 0) {
-    console.log(`\t${clc.green('✓')} ${greenNumber} cases OK`);
+    console.log(`\t${clc.green("✓")} ${greenNumber} cases OK`);
   }
 
   if (redNumber > 0) {
-    console.log(`\t${clc.red('✗')} ${redNumber} cases NG`);
+    console.log(`\t${clc.red("✗")} ${redNumber} cases NG`);
     exitStatus = false;
   }
 
-  console.log('\nAll checking finished!');
+  console.log("\nAll checking finished!");
 
   return exitStatus;
 };
